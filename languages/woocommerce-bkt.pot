@@ -1,0 +1,778 @@
+# Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Woocommerce BKT Package.
+# FIRST AUTHOR <miri@4xd.net>, 2022.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: Miri <miri@4xd.net>\n"
+"POT-Creation-Date: yyyy-mm-dd hh:mm+0000\n"
+"PO-Revision-Date: 2022-08-29 19:54+0100\n"
+"Last-Translator: Miri Dalipi <miri@4xd.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Eazy Po 1.0.0.0\n"
+
+#: woocommerce-bkt.php:56
+msgid "BKT Payment Gateway: WooCommerce plugin should be enabled."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:9
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:10
+msgid "Enable BKT"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:12
+msgid ""
+"This controls whether or not this gateway is enabled within WooCommerce."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:17
+msgid "Title"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:19
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:20
+msgid "BKT"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:24
+msgid "Description"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:26
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:31
+msgid "BKT Sandbox"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:33
+msgid ""
+"Place the payment gateway in development mode. Logs will be register in "
+"sandbox"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:37
+msgid "Language"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:39
+msgid "User Language information. (Turkish: TR, English: EN)"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:43
+msgid "Client ID"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:45
+msgid "This is the Client ID, received from BKT. (Client ID *)"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:49
+msgid "Merchant payment model"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:51
+msgid ""
+"Represents the Security type of the transaction. ( pay_hosting, 3d_pay, 3d, "
+"3d_pay_hosting )."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:55
+msgid "Username"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:57
+msgid "This is the merchant ID, received from BKT. (Username *)"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:61
+msgid "Password"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:63
+msgid "This is the merchant password, received from BKT. (Password *)"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:67
+msgid "Store Key"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:69
+msgid "This is the store key, received from BKT."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:74
+msgid "Translation type"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:76
+msgid ""
+"Transaction type. “Auth” should be sent for provision. ( Sales:Auth, "
+"PreAuthorization:PreAuth, PreAuthorizationClosing:PostAuth, Refund, Void, "
+"PointInquiry, OrderInquiry:OrderInq, BatchClose)"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:80
+msgid "Installment count"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:82
+msgid ""
+"Represents the number of installments. This number should be greater than 1 "
+"if this transaction is to be accepted as a transaction with installment. If "
+"this is a number smaller than 0 or a non-numeric symbol, this number is "
+"returned as 0"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:86
+msgid "Currency"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:88
+msgid "949 = TL, 840 = USD, 978 = EUR, 8 = ALL"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:92
+msgid "Who Receives Debug E-mails?"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:94
+msgid ""
+"The e-mail address to which debugging error e-mails are sent when in test "
+"mode."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:98
+msgid "Enable Logging"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:100
+msgid "Enable transaction logging for gateway."
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:104
+msgid "Order inquiry url"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:106
+msgid "Inquiry url"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:110
+msgid "3D Post Url"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:112
+msgid "Post url"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:116
+msgid "Business Name"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:118 includes/_4xd_bkt_form_fields.php:124
+#: includes/_4xd_bkt_form_fields.php:130
+msgid "Will be displayed at invoice header"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:122
+msgid "Business NIPT ( Tax ID Number )"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:128
+msgid "Business Address"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:134
+msgid "Support phone number"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:136 includes/_4xd_bkt_form_fields.php:142
+#: includes/_4xd_bkt_form_fields.php:148
+msgid "Will be displayed at invoice footer"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:140
+msgid "Support email address"
+msgstr ""
+
+#: includes/_4xd_bkt_form_fields.php:146
+msgid "Footer Notes"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:12 includes/_4xd_WC_BKT_Errors.php:13
+msgid "Card holders can receive detailed information by calling the bank"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:21
+msgid "Approved"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:22
+msgid "Refer to card issuer"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:23
+msgid "Refer to card issuer (Special Conditio,n)"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:24
+msgid "Invalid mercha,nt or service provider"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:25
+msgid "Pick-up card"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:26
+msgid "Not Approved"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:27
+msgid "File Update Error"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:28
+msgid "Pick up card (Special Condition)"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:29
+msgid "Examine Identity"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:30
+msgid "Try again"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:31
+msgid "Approved (VIP)"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:32
+msgid "Invalid Transaction"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:33
+msgid "Invalid amount"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:34
+msgid "Invalid Account Number"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:35
+msgid "No Such Issuer"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:36
+msgid "Unable to locate record on file"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:37
+msgid "Original is Denied"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:38
+msgid "Original not found"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:39
+msgid "Format error (switch generated)"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:40
+msgid "Expired card, pick-up"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:41
+msgid "Restricted card, pick-up"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:42
+msgid "Allowable PIN tries ,exceeded"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:43
+msgid "Lost card, Pick-up"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:44
+msgid "Stolen card, pick-up,"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:45
+msgid "Insufficient funds"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:46
+msgid "No checking account"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:47
+msgid "No savings acc,ount"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:48
+msgid "Expired card"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:49
+msgid "Incorrect PIN"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:50
+msgid "Unsupported Card"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:51
+msgid "Transaction not permitted to card"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:52
+msgid "POS doesn't have permission for this transaction"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:53
+msgid "Exceeds withdrawal amount limit"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:54
+msgid "Restricted card"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:55
+msgid "Security violation"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:56
+msgid "Cash Limit Exceeded"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:57
+msgid "Allowable number of PIN tries exceed"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:58
+msgid "Key synchronization error"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:59
+msgid "Decline of Request, No script"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:60
+msgid "Unsafe PIN"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:61
+msgid "ARQC failed"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:62
+msgid "Device Version Incompatible"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:63
+msgid "Approval of request (for PIN man)"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:64
+msgid "Issuer or switch is inoperative"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:65
+msgid "Financial institution unknown"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:66
+msgid "POS Negotiation Error"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:67
+msgid "System malfunction"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:68
+msgid "Duplicate Reversal"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:76
+msgid "Bonus amount can not be greater than order amount"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:77
+msgid "Currency Code Is Invalid"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:78
+msgid "Currency Code Is Missing"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:79
+msgid "Zero or empty amount or wrong."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:80
+msgid "Cvv2 must be represent but it is empty now."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:81
+msgid "Expiry Date Is Missing Or Wrong Length Must be 4 characters."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:82
+msgid "Fail Url Is Missing"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:83
+msgid "Pan Is Missing Or Invalid Length Of Pan.Must be 13 >= Pan <= 19"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:84
+msgid "Password match not succeed please confirm your password: {0}"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:85
+msgid "Ok Url Is Missing"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:86
+msgid "Pareq could not prepared."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:87
+msgid "Purchase Amount Is Missing Or Wrong Length"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:88
+msgid "Mbr Id is missing."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:89
+msgid "Unknown Secure Type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:90
+msgid "Unknown Txn Type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:91
+msgid "User Code Is Missing"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:92
+msgid "User Pass Is Missing"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:93
+msgid "Wrong Cvv2 {0}"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:94
+msgid "Purchase amount must be 0,01-200.000"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:95
+msgid "Can not make hire-purchase to using full bonus transactions."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:96
+msgid "Invalid securetype for this transaction type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:97
+msgid ""
+"Original transaction order id can not be emtpy for this transaction type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:98
+msgid ""
+"Original transaction order id must not be sent for this transaction type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:99
+msgid "Merchant Id Is Missing"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:100
+msgid "{0} column wrong length Request : {1} Actual : {2}"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:101
+msgid "Wrong secure type for this txn type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:102
+msgid "Record not found which you're looking for"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:103
+msgid "Order id can not be emtpy for this transaction type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:104 includes/_4xd_WC_BKT_Errors.php:112
+msgid "HASH mismatch"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:105
+msgid "OkURL must be maximum 200 characters"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:106
+msgid "Invalid card number"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:107
+msgid "Plugin Not Found"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:108
+msgid "Request form can not be empty"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:109
+msgid "Error during Mpi Post"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:110
+msgid "Max Amount Error"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:111
+msgid "Error during report request"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:113
+msgid "Merchant Find Error"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:114
+msgid "Could not connect to DS or Resolve Error {0}"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:115
+msgid "System Closed"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:116
+msgid "User could not be verified"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:117
+msgid "Unknown Card Type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:118
+msgid "User is not permitted for this transaction type"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:119
+msgid "Terminal is not active"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:120
+msgid "Merchant could not be found"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:121
+msgid "Merchant is not active"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:122
+msgid "Terminal is not authorized for this type of transaction"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:123
+msgid "Transaction type is not permitted for this terminal"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Errors.php:124
+msgid "Pareq Error {0}"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:42
+msgid "Credit Card, BKT ( Banka Kombetare Tregetare )"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:45
+#, php-format
+msgid ""
+"BKT Gateway works by sending the user to %1$sBKT%2$s to enter their payment "
+"information."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:103
+msgid ""
+"Thank you for your order, please click the button below to pay with BKT."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:146
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:148
+#, php-format
+msgid "New order from %s"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:164
+msgid "Pay via BKT"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:165
+msgid "Cancel order &amp; restore cart"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:177
+msgid ""
+"Thank you for your order. We are now redirecting you to BKT to make payment."
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:238
+msgid "Bad access of page"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:244
+msgid "3D User Authentication Failed"
+msgstr ""
+
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:248
+#: includes/_4xd_WC_BKT_Payment_Gateway.php:249
+msgid "Payment completed"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:5
+msgid "Invoice"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:90
+msgid "Nipt"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:93
+msgid "Address"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:96
+msgid "Support"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:109
+msgid "Website"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:122
+msgid "Order Items"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:125
+msgid "Item"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:126
+msgid "Cost"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:127
+msgid "Qty"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:128 templates/order/bkt-invoice.php:282
+msgid "Total"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:133 templates/order/bkt-invoice.php:134
+msgid "Tax"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:135
+#, php-format
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:156
+msgid "SKU: "
+msgstr ""
+
+#: templates/order/bkt-invoice.php:161
+msgid "variation: "
+msgstr ""
+
+#: templates/order/bkt-invoice.php:165
+#, php-format
+msgid "%s (No longer exists)"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:237 templates/order/bkt-invoice.php:244
+msgid "Shipping"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:285
+msgid "Discount:"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:291
+msgid "Shipping:"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:318
+msgid "Order total"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:329
+msgid "Payment Details"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:335
+msgid "Status"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:339
+msgid "Transaction id"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:343
+msgid "Transaction Type"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:347
+msgid "Authorization Code"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:351
+msgid "Card type"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:355
+msgid "Card"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:359
+msgid "Transaction date"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:371
+msgid "Customer contact details"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:377
+msgid "Phone"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:381
+msgid "Email"
+msgstr ""
+
+#: templates/order/bkt-invoice.php:392
+msgid "Billing/Shipping"
+msgstr ""

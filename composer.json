@@ -1,0 +1,13 @@
+{
+  "name": "miri29/woocommerce-bkt",
+  "description": "Albania BKT (Banka Kombetare Tregetare) payment gateway for woocommerce.",
+  "authors": [
+    {
+      "name": "Miri",
+      "email": "miri@4xd.net"
+    }
+  ],
+  "require": {
+    "dompdf/dompdf": "^0.8.0"
+  }
+}
