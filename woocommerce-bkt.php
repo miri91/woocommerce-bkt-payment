@@ -61,9 +61,15 @@ function bkt_start()
     }
 
     add_action('plugins_loaded', 'wc_bkt_plugin_loaded');
-    add_filter('woocommerce_payment_gateways', 'woocommerce_bkt_add_gateway');
+    add_filter('woocommerce_payment_gateways', 'woocommerce_add_bkt_gateway');
+    add_action( 'wp_enqueue_scripts', 'enqueue_css');
 
     define('WC_GATEWAY_BKT_LOADED', true);
+}
+
+function enqueue_css() {
+    $plugin_url = plugin_dir_url( __FILE__ );
+    wp_enqueue_style( 'bkt_style',  plugins_url('/css/bkt-style.css', __FILE__), false, '1.0.0', 'all');
 }
 
 function wc_bkt_plugin_loaded () {

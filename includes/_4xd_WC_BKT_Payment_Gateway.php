@@ -19,13 +19,13 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
     private string $installment_count;
     private string $lang;
     private string $random_number;
-    public string$title;
+    public $title;
     
     private string $post_url_3d;
 
     private string $response_url;
-    public string $description;
-    public bool $enabled;
+    public $description;
+    public $enabled;
     private string $enable_logging;
     protected array $dataToSend;
 
@@ -63,6 +63,12 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
         add_action('woocommerce_receipt_bkt', array($this, 'GenerateReceipt'));
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
         add_filter('woocommerce_email_attachments', array($this, 'attach_invoice_pdf_to_email'), 300, 3);
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_css') );
+    }
+
+    public function enqueue_css() {
+        $plugin_url = plugin_dir_url( __FILE__ );
+        wp_enqueue_style( 'bkt_style',  plugins_url('/css/bkt-style.css', __FILE__), false, '1.0.0', 'all');
     }
 
     protected function getOptions() : void
@@ -70,7 +76,7 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
         $this->currency             = $this->get_option('currency');
         $this->lang					= $this->get_option('lang');
         $this->random_number		= intval(microtime(true)*1000);
-        $this->response_url	    	= add_query_arg('wc-api', 'WC_Gateway_BKT', home_url('/'));
+        $this->response_url	    	= add_query_arg('wc-api', 'WC_BKT_Gateway', home_url('/'));
 
         // Setup default merchant data.
         $this->client_id			= $this->get_option('client_id');
@@ -112,23 +118,29 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
     {
         $order = wc_get_order($order_id);
 
+        $billToName = sprintf('%s %s', self::get_order_prop($order, 'billing_first_name'), self::get_order_prop($order, 'billing_last_name'));
+        $billToCompany = self::get_order_prop($order, 'billing_company');
+
         $this->dataToSend = array(
             'clientid'                          => $this->client_id,
-            'storetype'                         => $this->store_type,
-            'trantype'                          => $this->transaction_type,
             'amount'                            => $order->get_total(),
-            'currency'					        => $this->currency,
-            'oid'                               => $order->get_order_number(),
-            'okUrl'                             => $this->response_url,
+            'okurl'                             => $this->response_url,
             'failUrl'					        => $this->response_url,
-            'lang'					            => $this->lang,
+            'TranType'                          => $this->transaction_type,
+            'Instalment'                        => (string) $this->installment_count,
+            'callbackUrl'                       => $this->response_url,
+            'currency'					        => $this->currency,
             'rnd'						        => $this->random_number,
-            'hash'						        => $this->generate_hash($order->get_order_number(), $this->random_number),
+            'storetype'                         => $this->store_type,
+            'hashAlgorithm'                     => 'ver3',
+            'lang'					            => $this->lang,
+            // 'oid'                               => $order->get_order_number(),
+            // 'hash'						        => $this->generate_hash($order->get_order_number(), $this->random_number, $billToName, $billToCompany),
 
-            'BillToName'		                => sprintf('%s %s', self::get_order_prop($order, 'billing_first_name'), self::get_order_prop($order, 'billing_last_name')),
+            'BillToName'		                => $billToName,
             'Email'				                => self::get_order_prop($order, 'billing_email'),
             'tel'				                => self::get_order_prop($order, 'billing_phone'),
-            'BillToCompany'		                => self::get_order_prop($order, 'billing_company'),
+            'BillToCompany'		                => $billToCompany,
             'BillToStreet1'			            => self::get_order_prop($order, 'billing_address_1'),
             'BillToStateProv'				    => self::get_order_prop($order, 'billing_state'),
             'BillToCity'				        => self::get_order_prop($order, 'billing_city'),
@@ -153,6 +165,8 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
             'encoding'           			    => 'utf-8',
             'refreshtime'                       => 0
         );
+
+        $this->dataToSend['hash'] = $this->generate_hash($order_id, $this->dataToSend);
 
         $_order_args = array();
         foreach ($this->dataToSend as $key => $value) {
@@ -330,24 +344,81 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
      * @param $order_id
      * @return string|null
      */
-    public function generate_hash($order_id, $random_number): ?string
+    public function generate_hash($order_id, $data): ?string
     {
         $order = wc_get_order($order_id);
         if (!$order) {
             return null;
         }
 
-        $hash = implode('', [
-            $this->client_id,
-            $order->get_order_number(),
-            $order->get_total(),
-            $this->response_url,
-            $this->response_url,
-            $this->transaction_type,
-            $this->installment_count,
-            $random_number,
-            $this->store_key
-        ]);
+        // $hash = implode('', [
+        //     $this->client_id,
+        //     $order->get_order_number(),
+        //     $order->get_total(),
+        //     $this->response_url,
+        //     $this->response_url,
+        //     $this->transaction_type,
+        //     $this->installment_count,
+        //     $random_number,
+        //     $this->store_key
+        // ]);
+
+        // $data = [
+        //     'clientid' => $this->client_id,
+        //     'amount' => $order->get_total(),
+        //     'okurl' => $this->response_url,
+        //     'failUrl' => $this->response_url,
+        //     'TranType' => $this->transaction_type,
+        //     'Instalment' => $this->installment_count,
+        //     'callbackUrl' => $this->response_url,
+        //     'currency' => $this->currency,
+        //     'rnd' => $this->random_number,
+        //     'storetype' => $this->store_type,
+        //     'hashAlgorithm' => 'ver3',
+        //     'lang' => $this->lang,
+        //     'BillToName' => $billToName,
+        //     'BillToCompany' => $billToCompany,
+        // ];
+        
+        //return $data;
+
+        $postParams = array();
+        foreach ($data as $key => $value){
+            array_push($postParams, $key);
+        }
+
+        natcasesort($postParams);
+			
+        $hashval = "";					
+        foreach ($postParams as $param){				
+            $paramValue = $data[$param];
+            $escapedParamValue = str_replace("|", "\\|", str_replace("\\", "\\\\", $paramValue));	
+                
+            $lowerParam = strtolower($param);
+            if($lowerParam != "hash" && $lowerParam != "encoding" )	{
+                $hashval = $hashval . $escapedParamValue . "|";
+            }
+        }
+
+        $escapedStoreKey = str_replace("|", "\\|", str_replace("\\", "\\\\", $this->store_key));
+        $hashval = $hashval . $escapedStoreKey;
+
+        $calculatedHashValue = hash('sha512', $hashval);  
+        return base64_encode(pack('H*',$calculatedHashValue));
+
+        // $hash = implode('', [
+        //     $this->client_id,
+        //     $order->get_total(),
+        //     $this->response_url,
+        //     $this->response_url,
+        //     $this->transaction_type,
+        //     $this->installment_count,
+        //     $this->response_url,
+        //     $this->currency,
+        //     $random_number,
+        //     $order->get_order_number(),
+        //     $this->store_key
+        // ]);
 
         // return base64_encode(pack('H*', sha1($hash)));
         return base64_encode(pack('H*',sha1($hash)));
