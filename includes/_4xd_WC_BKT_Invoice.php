@@ -8,7 +8,7 @@ use Dompdf\Dompdf;
 
 class _4xd_WC_BKT_Invoice
 {
-    private WC_Order $order;
+    private $order;
 
     public function __construct(WC_Order $order)
     {
@@ -20,6 +20,10 @@ class _4xd_WC_BKT_Invoice
      */
     public function get_order_invoice()
     {
+        if(!get_post_meta( $this->order->get_order_number(), '_bkt_transaction_auth_id', true )){
+		    return null;
+	    }
+
         if ($this->is_saved() && $this->is_uploaded()) {
             return $this->get_invoice_from_order();
         }

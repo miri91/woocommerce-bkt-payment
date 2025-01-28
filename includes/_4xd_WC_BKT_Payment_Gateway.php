@@ -2,6 +2,8 @@
 
 class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
 {
+    private $logger = '';
+
     public $id;
     public string $version;
     public $icon;
@@ -232,9 +234,9 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
     {
         if ($this->enable_logging || $this->get_option('testmode') === 'yes' ) {
             if (empty($this->logger)) {
-                $this->logger = new WC_Logger();
+                $this->logger = wc_get_logger();
             }
-            $this->logger->add('Bkt payment', $message);
+            $this->logger->debug($message, array( 'source' => 'bkt-payment' ));
         }
     }
 
@@ -254,25 +256,27 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
             die;
         }
 
-        if ($post['3DStatus'] !== '1') {
+        if ($post['mdStatus'] !== '1') {
             $this->logs(__('3D User Authentication Failed', 'woocommerce-bkt'));
         }
 
-        if ($post['ProcReturnCode'] === '00') {
-            $order->add_order_note(__('Payment completed', 'woocommerce-bkt'), true);
+        if ($post['ProcReturnCode'] == '00') {
             $this->logs(__('Payment completed', 'woocommerce-bkt'));
 
             // Add order meta
-            update_post_meta($order->get_id(), '_bkt_status', 'Approved');
-            update_post_meta($order->get_id(), '_bkt_transaction_auth_id', $post['AuthCode']);
-            update_post_meta($order->get_id(), '_bkt_transaction_id', $post['TransId']);
-            update_post_meta($order->get_id(), '_bkt_transaction_card_type', $post['EXTRA_CARDBRAND']);
-            update_post_meta($order->get_id(), '_bkt_card_mask', $post['MaskedPan']);
-            update_post_meta($order->get_id(), '_bkt_transaction_date', $post['EXTRA_TRXDATE']);
+            update_post_meta($orderId, '_bkt_status', 'Approved');
+            update_post_meta($orderId, '_bkt_transaction_auth_id', $post['AuthCode']);
+            update_post_meta($orderId, '_bkt_transaction_id', $post['TransId']);
+            update_post_meta($orderId, '_bkt_transaction_card_type', $post['EXTRA_CARDBRAND']);
+            update_post_meta($orderId, '_bkt_card_mask', $post['MaskedPan']);
+            update_post_meta($orderId, '_bkt_transaction_date', $post['EXTRA_TRXDATE']);
             
-            update_post_meta($order->get_id(), '_bkt_transaction_type', $post['trantype']);
+            update_post_meta($orderId, '_bkt_transaction_type', $post['TranType']);
 
-            $order->payment_complete();
+			//Sometimes the confirmation mail can be send before the order confirmations from wp
+            $order->set_new_order_email_sent(false);
+			$order->payment_complete();
+			//$order->add_order_note(__('Payment completed', 'woocommerce-bkt'), true);
         } else {
             $message = $this->get_bank_error_message($post['ProcReturnCode']);
 
@@ -434,7 +438,7 @@ class _4xd_WC_BKT_Payment_Gateway extends WC_Payment_Gateway
     {
         if (
             $order instanceof WC_Order
-            && in_array($type, ['customer_processing_order', 'customer_invoice'])
+            && in_array($type, ['customer_processing_order', 'customer_invoice', 'new_order', 'customer_completed_order'])
             && $order->get_payment_method() === $this->id
         ) {
             $invoice = (new _4xd_WC_BKT_Invoice($order))->get_order_invoice();

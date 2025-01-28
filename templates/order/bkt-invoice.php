@@ -67,11 +67,11 @@ if ( wc_tax_enabled() ) {
 // Get payment details
 $_bkt_status 				= get_post_meta( $order_id, '_bkt_status', true );
 $_bkt_transaction_id 		= get_post_meta( $order_id, '_bkt_transaction_id', true );
-$_bkt_transaction_auth_id 		= get_post_meta( $order_id, '_bkt_transaction_auth_id', true );
+$_bkt_transaction_auth_id 	= get_post_meta( $order_id, '_bkt_transaction_auth_id', true );
 $_bkt_transaction_card_type = get_post_meta( $order_id, '_bkt_transaction_card_type', true );
 $_bkt_card_mask 			= get_post_meta( $order_id, '_bkt_card_mask', true );
 $_bkt_transaction_dat 		= get_post_meta( $order_id, '_bkt_transaction_date', true );
-$_bkt_transaction_type 		= get_post_meta( $order_id, '_bkt_transaction_type', true );
+$_bkt_transaction_type		= get_post_meta( $order_id, '_bkt_transaction_type', true );
 
 $business_name 		= $settings->business_name ?? '';
 $nipt_number 		= $settings->business_nipt ?? '';
